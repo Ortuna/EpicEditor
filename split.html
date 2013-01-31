@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EpicEditor - An embeddable JavaScript Markdown editor</title>
+    <meta name="description" content="EpicEditor is an embeddable JavaScript Markdown editor with split fullscreen editing, live previewing, automatic draft saving, offline support, and more.">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:400,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="docs/css/prettify.css">
+    <link rel="shortcut icon" href="docs/favicon.ico">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="epiceditor"></div>
+    </div>
+  <script src="epiceditor/js/epiceditor.js"></script>
+  <script type="text/javascript">
+    if(window.attachEvent) {
+        window.attachEvent('onload', yourFunctionName);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function() {
+                curronload();
+                init_all();
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = init_all;
+        }
+    }
+
+    function init_all()
+    {
+      editor = new EpicEditor()
+      editor.load(function () {
+        editor.enterFullscreen();
+      });
+
+      editor.load();
+    }
+
+  </script>
+
+</body>
+</html>
